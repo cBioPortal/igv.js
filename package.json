@@ -1,6 +1,6 @@
 {
   "name": "igv",
-  "version": "2.5.2",
+  "version": "2.5.3-fork.0",
   "description": "Embeddable genomic visualization component based on the Integrative Genomics Viewer",
   "main": "dist/igv.esm.js",
   "browser": "dist/igv.js",
@@ -12,6 +12,7 @@
     "build": "node scripts/updateVersion.js && node scripts/generateEmbedCss.js && npx rollup --config",
     "test": "node runTests.js",
     "prepack": "npm run build",
+    "prepare": "npm run build",
     "http-server": "npx http-server ."
   },
   "author": {
