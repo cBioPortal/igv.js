@@ -1042,6 +1042,7 @@ Browser.prototype.updateLocusSearchWidget = function (genomicState) {
 
             this.$searchInput.val(genomicState.locusSearchString);
             this.chromosomeSelectWidget.$select.val('all');
+            this.config.onLocusChange && this.config.onLocusChange('all');
         } else {
 
             referenceFrame = genomicState.referenceFrame;
@@ -1063,6 +1064,8 @@ Browser.prototype.updateLocusSearchWidget = function (genomicState) {
                 str = referenceFrame.chrName + ":" + ss + "-" + ee;
                 this.$searchInput.val(str);
             }
+
+            this.config.onLocusChange && this.config.onLocusChange(str);
 
             this.fireEvent('locuschange', [{chr: referenceFrame.chrName, start: ss, end: ee, label: str}]);
         }
